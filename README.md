@@ -8,7 +8,6 @@ Simple demostration of Grails accessing mobile infraestructure
 Esta App se propone como objeto:
  * Recibir la subscripción de los dispositivos Android.
  * Enviar mensajes a los subscriptos
- * 
  
 ### Core
 
