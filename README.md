@@ -19,7 +19,7 @@ Está desarrollada usando:
 
 ### Subscripción
  
-El [DeviceController](grails-app/controllers/androidpush/DeviceController.groovy) recibe el deviceToken y lo resguarda para luego usarlo al momento de notificar.
+El [DeviceController](grails-app/controllers/androidpush/DeviceController.groovy) recibe el deviceToken que es enviado por el dispositivo, desde la app a la cual queremos enviar notificaciones, y lo resguarda para luego usarlo al momento de notificar. Como esto es enviado por la app y no tiene ningun tipo de restriccion de android, esta llamada puede requerir mas informacion al dispositivo (por ejemplo que tipo de dispositivo es, en caso de querer integrar otras plataformas)
 
 ### Envío de mensajes
 A través de *POST* request, en el [SendNotificationController](grails-app/controllers/androidpush/SendNotificationController.groovy).
@@ -30,7 +30,7 @@ La informacion necesaria para que se muestre una notificacion con titulo y mensa
 texto plano:
 ```javascript
 {
-    registration_id: deviceToken,
+    registration_id: deviceToken, // obtenidos en la registracion
     data.<key>: value, // diccionario que contiene la informacion que llega al dispositivo
 }
 ```
