@@ -11,3 +11,4 @@ La suscripcion se realiza por medio del DeviceController, Lo unico que hace este
 El envio del mensaje se hace por medio de un POST request, en el SendNotificationController.
 
 Se envia la informacion necesaria para que se muestre una notificacion con titulo y mensaje, siguiendo las especificaciones de android(http://developer.android.com/google/gcm/server.html), para un mensaje de texto plano (un mensaje de tipo JSON varia), y lo requerido por el plugin de cordova PushPlugin
+El header 'Authorization':'key=AIzaSyC-jnkrWsZq8BL32KMjiOJBHNxRjNTpHk8', es el APIKey generado en https://console.developers.google.com/project
