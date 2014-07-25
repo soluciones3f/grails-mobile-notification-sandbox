@@ -3,12 +3,33 @@ grails-mobile-notification-sandbox
 
 Simple demostration of Grails accessing mobile infraestructure
 
+### Description 
 
-Servicios que permiten la suscripcion de un dispositivo tipo android, y el envio de un mensaje a todos los sucriptos.
+Esta App se propone como objeto:
+ * Recibir la subscripción de los dispositivos Android.
+ * Enviar mensajes a los subscriptos
+ * 
+ 
+### Core
 
-La suscripcion se realiza por medio del DeviceController, Lo unico que hace este es recibir el deviceToken y guardarlo
+Está desarrollada usando:
+ * Grails 2.4.2
+ * redis services
 
-El envio del mensaje se hace por medio de un POST request, en el SendNotificationController.
+## Métodos
 
-Se envia la informacion necesaria para que se muestre una notificacion con titulo y mensaje, siguiendo las especificaciones de android(http://developer.android.com/google/gcm/server.html), para un mensaje de texto plano (un mensaje de tipo JSON varia), y lo requerido por el plugin de cordova PushPlugin
-El header 'Authorization':'key=AIzaSyC-jnkrWsZq8BL32KMjiOJBHNxRjNTpHk8', es el APIKey generado en https://console.developers.google.com/project
+### Subscripción
+ 
+El [DeviceController](grails-app/controllers/androidpush/DeviceController.groovy) recibe el deviceToken y lo resguarda para luego usarlo al momento de notificar.
+
+### Envío de mensajes
+A través de *POST* request, en el [SendNotificationController](grails-app/controllers/androidpush/SendNotificationController.groovy).
+
+#### Detalle sobre el mensaje
+La informacion necesaria para que se muestre una notificacion con titulo y mensaje, siguiendo las [especificaciones de android](http://developer.android.com/google/gcm/server.html), para un mensaje de texto plano (un mensaje de tipo JSON varia), y lo requerido por el plugin de cordova [PushPlugin](link).
+
+```
+'Authorization':'key=AIzaSyC-jnkrWsZq8BL32KMjiOJBHNxRjNTpHk8'
+```
+
+es el APIKey se genera desde la [página de Android](https://console.developers.google.com/project).
